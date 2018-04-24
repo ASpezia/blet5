@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <p> Welcome :{{request.session.alias}}</p> <a href ="/logoutfunc">Logout</a>
+    {% if lengthpokes == 0 %}
+    <p> Nobody has poked you yet</p>
+    {% else %}
+    <p> {{pokes}} people poked you!</p> <!-- change 'number to reflect correct variable'-->
+    <p> {{user.alias}} poked you {{user.pokes}} of times </p> <!-- change somebody and number to correct variable-->
+
+
+
+    <h3> People you can poke</h3>
+    {{others}}
+    {% for user in others %}
+    <p>{{user.name}} {{user.alias}} {{user.email}} {{pokes}} <a href = "poke/{{user.id}}">Poke 'em!</a></p>
+    {% endfor %}
+    {% endif%}
+
+
+  </body>
+</html>
